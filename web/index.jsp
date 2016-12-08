@@ -11,6 +11,7 @@
     <title></title>
   </head>
   <body>
-
+    <jsp:forward page="WEB-INF/jsp/login.jsp"/>
+    <jsp:include page="WEB-INF/jsp/footer.jsp"/>
   </body>
 </html>
