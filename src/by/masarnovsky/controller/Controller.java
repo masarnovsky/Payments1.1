@@ -1,5 +1,10 @@
 package by.masarnovsky.controller;
 
+import by.masarnovsky.ConfigurationManager;
+import by.masarnovsky.MessageManager;
+import by.masarnovsky.command.ActionCommand;
+import by.masarnovsky.factory.ActionFactory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +19,7 @@ public class Controller extends HttpServlet {
         String page = null;
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(req);
-        page = command.execute(request);
+        page = command.execute(req);
 
         if (page != null){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
@@ -24,6 +29,7 @@ public class Controller extends HttpServlet {
             page = ConfigurationManager.getProperty("path.page.index");
             req.getSession().setAttribute("nullPage", MessageManager.getProperty("message.nullpage"));
             resp.sendRedirect(req.getContextPath() + page);
+            //resp.sendRedirect(page);
         }
     }
 

@@ -8,11 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="../../css/materialize.css">
 </head>
 <body>
 <nav>
   <div class="nav-wrapper">
+    navbar
   </div>
 </nav>
 </body>
