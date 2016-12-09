@@ -9,6 +9,7 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../../css/materialize.css">
 </head>
 <body>
     <jsp:include page="navbar.jsp"/>

@@ -2,6 +2,7 @@ package by.masarnovsky.command;
 
 import by.masarnovsky.ConfigurationManager;
 import by.masarnovsky.LoginLogic;
+import by.masarnovsky.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,13 +17,13 @@ public class LoginCommand implements ActionCommand {
         String password = req.getParameter(PARAM_NAME_PASSWORD);
 
         if (LoginLogic.checkLogin(login, password)){
-            req.setAttribute("name", login);
+            req.setAttribute("user", login);
             page = ConfigurationManager.getProperty("path.page.main");
         } else {
-            //req.setAttribute("errorLoginOrPassMessage", MessageManager.getProperty("message.loginerror"));
-            //page = ConfigurationManager.getProperty("path.page.login");
-            req.setAttribute("errorLoginOrPassMessage", "wrong");
-            page = "/WEB-INF/jsp/login.jsp";
+            req.setAttribute("errorLoginOrPassMessage", MessageManager.getProperty("message.loginerror"));
+            page = ConfigurationManager.getProperty("path.page.login");
+            //req.setAttribute("errorLoginOrPassMessage", "wrong");
+            //page = "/WEB-INF/jsp/login.jsp";
         }
         return page;
     }

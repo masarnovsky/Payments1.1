@@ -3,7 +3,7 @@ package by.masarnovsky;
 import java.util.ResourceBundle;
 
 public class MessageManager {
-    private final static ResourceBundle resourseBundle = ResourceBundle.getBundle("resources.messages");
+    private final static ResourceBundle resourseBundle = ResourceBundle.getBundle("by.masarnovsky.messages");
 
     private MessageManager(){}
 
