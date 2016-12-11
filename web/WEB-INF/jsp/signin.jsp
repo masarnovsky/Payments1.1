@@ -6,9 +6,8 @@
 </head>
 <body>
     <jsp:include page="/navbar"/>
-
     <div class="row">
-        <form name="SigninForm" action="controller" method="POST" class="col s12">
+        <form name="SigninForm" action="controller" method="POST" class="col s8">
             <input name="command" type="hidden" value="signin">
             <div class="row">
                 <div class="input-field col s4">
