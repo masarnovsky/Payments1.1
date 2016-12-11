@@ -1,4 +1,4 @@
-package by.masarnovsky;
+package by.masarnovsky.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

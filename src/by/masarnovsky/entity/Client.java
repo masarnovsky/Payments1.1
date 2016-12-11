@@ -15,8 +15,7 @@ public class Client {
         this.password = password;
     }
 
-    public Client(String fio, String login, String password) {
-        this.fio = fio;
+    public Client(String login, String password) {
         this.login = login;
         this.password = password;
     }
