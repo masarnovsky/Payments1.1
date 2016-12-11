@@ -1,16 +1,46 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 11.12.2016
-  Time: 11:28
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Sign in</title>
+    <link rel="stylesheet" type="text/css" href="../../css/materialize.css">
 </head>
 <body>
+    <jsp:include page="/navbar"/>
 
+    <div class="row">
+        <form name="SigninForm" action="controller" method="POST" class="col s12">
+            <input name="command" type="hidden" value="signin">
+            <div class="row">
+                <div class="input-field col s4">
+                    <input name="fio" type="text">
+                    <label>FIO</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="login" type="text" class="validate" length="15">
+                    <label>Login</label>
+                </div>
+                <div class="col s4"><p>${errorInLogin}</p></div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="password" type="password" name="password" class="validate" length="15">
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="passwordRepeat" id="passwordRepeat" type="password" class="validate" length="15">
+                    <label for="passwordRepeat">Repeat password</label>
+                </div>
+                <div class="col s4"><p>${errorInPass}</p></div>
+                <div class="col s4"><p>${errorSIGNIN}</p></div>
+            </div>
+            <input type="submit" value="Sign in" class="waves-effect waves-light btn indigo darken-4"/>
+
+        </form>
+    </div>
+
+    <jsp:include page="/footer"/>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
 </body>
 </html>

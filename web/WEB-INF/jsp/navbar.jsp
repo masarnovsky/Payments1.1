@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 09.12.2016
-  Time: 1:00
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +5,15 @@
 <body>
 <nav>
   <div class="nav-wrapper">
-    navbar
+    <ul>
+        <li>My accounts</li>
+        <c:if test="${isAdmin}">
+            <li>Show blocked accounts</li>
+        </c:if>
+        <c:if test="${isSignedIn == true}">
+            <li><a href="controller?command=logout">logout</a></li>
+        </c:if>
+    </ul>
   </div>
 </nav>
 </body>

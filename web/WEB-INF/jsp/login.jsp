@@ -1,19 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 09.12.2016
-  Time: 0:42
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>Log in</title>
     <link rel="stylesheet" type="text/css" href="../../css/materialize.css">
 </head>
 <body>
-    <jsp:include page="navbar.jsp"/>
-
+<jsp:include page="/navbar"/>
     <form name="LoginForm" method="POST" action="controller">
         <input name="command" type="hidden" value="login">
         Login:
@@ -25,7 +17,6 @@
         ${nullPage}
         <input type="submit" value="Log in"/>
     </form>
-
-    <jsp:include page="footer.jsp"/>
+    <jsp:include page="/footer"/>
 </body>
 </html>

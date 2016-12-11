@@ -6,9 +6,7 @@
 </head>
 <body>
     <jsp:include page="navbar.jsp"/>
-
-    Hello ${login}!
-
+    ${login}
     <a href="controller?command=logout">logout</a>
 
     <jsp:include page="footer.jsp"/>

@@ -1,17 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 06.12.2016
-  Time: 1:34
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title></title>
+        <title>Hello page</title>
+        <link rel="stylesheet" type="text/css" href="../../css/materialize.css">
   </head>
   <body>
-    <jsp:forward page="WEB-INF/jsp/login.jsp"/>
-    <jsp:include page="WEB-INF/jsp/footer.jsp"/>
+
+  <a class="waves-effect waves-light btn blue lighten-2" href="/login">Log in</a>
+  <a class="waves-effect waves-light btn indigo darken-4" href="/signin">Sign in</a>
+
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
   </body>
 </html>
