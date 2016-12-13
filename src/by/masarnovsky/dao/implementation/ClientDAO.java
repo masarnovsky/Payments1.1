@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ClientDAO implements IClientDAO {
+    private static final String CREDIT_CARD_ATTRIBUTE = "creditCardAttribute";
+    private static final String ACCOUNTS_ATTRIBUTE = "accountsAttribute";
     private final String INSERT_NEW_CLIENT = "insert into clients(fio, login, password, isAdmin) values(?, ?, ?, 0)";
     private final String CHECK_CLIENT_BY_LOGIN = "select id, fio, password, isAdmin from clients where login=?";
     private final String GET_CLIENT_ACCOUNTS = "select * from account where owner=?";
@@ -123,7 +125,7 @@ public class ClientDAO implements IClientDAO {
                 String number;
                 int idAccountForCreditCard;
                 String valid;
-                int cvv;
+                String cvv;
                 for (Account a : accounts){
                     account = a.getId();
                     ps.setInt(1, account);
@@ -132,15 +134,14 @@ public class ClientDAO implements IClientDAO {
                     number = rs.getString(1);
                     idAccountForCreditCard = rs.getInt(2);
                     valid = rs.getString(3);
-                    cvv = rs.getInt(4);
+                    cvv = rs.getString(4);
                     creditCards.put(account, new CreditCard(number, idAccountForCreditCard, valid, cvv));
-                    //
-                    req.getSession().setAttribute("errorAccounts", "your accounts");
+                    req.getSession().setAttribute(ACCOUNTS_ATTRIBUTE, accounts);
+                    req.getSession().setAttribute(CREDIT_CARD_ATTRIBUTE, creditCards);
                 }
             }
             else {
-                // has no accounts
-                req.getSession().setAttribute("errorAccounts", "has no accounts");
+                req.getSession().setAttribute("errorAccounts", "У Вас нет счета. ");
             }
 
         } catch (SQLException e) {

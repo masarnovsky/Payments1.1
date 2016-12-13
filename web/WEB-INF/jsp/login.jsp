@@ -26,7 +26,7 @@
 
 
 
-
+        <button class="btn waves-effect waves-light" type="submit">Log in</button>
         <input type="submit" value="Log in"/>
     </form>
     </div>

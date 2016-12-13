@@ -4,9 +4,9 @@ public class CreditCard {
     private String number;
     private int account;
     private String valid;
-    private int cvv;
+    private String cvv;
 
-    public CreditCard(String number, int account, String valid, int cvv) {
+    public CreditCard(String number, int account, String valid, String cvv) {
         this.number = number;
         this.account = account;
         this.valid = valid;
@@ -37,11 +37,11 @@ public class CreditCard {
         this.valid = valid;
     }
 
-    public int getCvv() {
+    public String getCvv() {
         return cvv;
     }
 
-    public void setCvv(int cvv) {
+    public void setCvv(String cvv) {
         this.cvv = cvv;
     }
 }
