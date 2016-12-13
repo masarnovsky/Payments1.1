@@ -1,10 +1,10 @@
 package by.masarnovsky.command;
 
 import by.masarnovsky.ConfigurationManager;
-import by.masarnovsky.LoginLogic;
 import by.masarnovsky.MessageManager;
 import by.masarnovsky.dao.IClientDAO;
 import by.masarnovsky.dao.implementation.ClientDAO;
+import by.masarnovsky.entity.Client;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,9 +28,10 @@ public class SigninCommand implements ActionCommand {
         String repeatPassword = req.getParameter(REPEAT_PASSWORD);
 
         if (password != null && password.equals(repeatPassword)){
-            if (LoginLogic.checkLogin(login, password, req) == null){
-                IClientDAO client = new ClientDAO();
-                if (client.registrateClient(fio, login, password)){
+            IClientDAO clientDAO = new ClientDAO();
+            Client client = clientDAO.checkLogin(login, password, req);
+            if (client == null){
+                if (clientDAO.registrateClient(fio, login, password)){
                     page = ConfigurationManager.getProperty("path.page.success");
                 }
                 else {

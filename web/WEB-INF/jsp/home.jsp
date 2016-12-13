@@ -7,7 +7,8 @@
 <body>
     <jsp:include page="navbar.jsp"/>
     ${login}
-    <a href="controller?command=logout">logout</a>
+    <br>
+    acc: ${errorAccounts}
 
     <jsp:include page="footer.jsp"/>
 </body>

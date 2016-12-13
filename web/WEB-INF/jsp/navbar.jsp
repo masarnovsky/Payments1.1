@@ -9,13 +9,13 @@
   <div class="nav-wrapper">
     <ul>
         <c:if test="${isSignedIn == true}">
-            <li>My accounts</li>
+            <li>Мои счета</li>
             <c:if test="${isAdmin}">
-                <li>Show blocked accounts</li>
+                <li>Показать все заблокированные аккаунты</li>
             </c:if>
-            <li><a href="controller?command=logout">logout</a></li>
-        </c:if>
 
+            <li><a href="controller?command=logout">Выйти</a></li>
+        </c:if>
     </ul>
   </div>
 </nav>

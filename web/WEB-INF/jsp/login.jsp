@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -5,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/materialize.css">
 </head>
 <body>
-<jsp:include page="/navbar"/>
+<c:import url="/navbar"/>
     <div class="row">
     <form name="LoginForm" method="POST" action="controller" class="col s8">
         <input name="command" type="hidden" value="login">
@@ -19,12 +20,6 @@
                 <label>Login</label>
             </div>
         </div>
-        <!--
-        <input name="command" type="hidden" value="login" class="s4">
-        Login:
-        <input type="text" name="login" value="">
-        Password:
-        <input type="password" name="password" value=""> -->
         ${errorLoginOrPassMessage}
         ${wrongAction}
         ${nullPage}

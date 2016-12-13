@@ -29,7 +29,6 @@ public class Controller extends HttpServlet {
             page = ConfigurationManager.getProperty("path.page.index");
             req.getSession().setAttribute("nullPage", MessageManager.getProperty("message.nullpage"));
             resp.sendRedirect(req.getContextPath() + page);
-            //resp.sendRedirect(page);
         }
     }
 

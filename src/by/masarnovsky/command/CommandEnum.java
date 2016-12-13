@@ -15,6 +15,11 @@ public enum CommandEnum {
         {
             this.command = new SigninCommand();
         }
+    },
+    GETALLACCOUNTS{
+        {
+            this.command = new GetAllAccountsCommand();
+        }
     };
 
     ActionCommand command;
