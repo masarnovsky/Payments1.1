@@ -8,6 +8,10 @@
 <body>
     <jsp:include page="navbar.jsp"/>
     <div class="container">
+        <div class="row">
+                <h5 class="center-align">Ваши счета:</h5>
+            <h5 class="center-align">${blockingMessage}</h5>
+        </div>
     <c:set var="hasNoAccount" value="${errorAccounts}"/>
         <c:if test="${hasNoAccount ne true}">
             <c:forEach var="account" items="${accountsAttribute}">
@@ -19,35 +23,43 @@
                             <div class="card-content">
                                 <span class="card-title">Сведения о счете</span>
                                 <div class="row">
-                                    <div class="col s6">
+                                    <div class="col s5">
                                         <p>Номер: ${account.getId()}</p>
                                         <p>Баланс: ${account.getCash()} BYN</p>
                                         <p>Заблокирована: ${isBlckd}</p>
                                     </div>
-                                    <div class="col s6">
+                                    <div class="col s7">
                                         <p>Номер КК: ${creditCardAttribute[idAcc].getNumber()}</p>
                                         <p>Валидность: ${creditCardAttribute[idAcc].getValid()}</p>
                                         <p>CVV: ${creditCardAttribute[idAcc].getCvv()}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-action">
-                                <a href="#">This is a link</a>
-                                <a href="#">This is a link</a>
-                            </div>
+                            <c:if test="${isBlckd ne true}">
+                                <div class="card-action">
+                                    <a href="#">Сделать платёж</a>
+                                    <a href="#">История платежей</a>
+                                    <a href="controller?command=blockAccount${account.getId()}">Заблокировать счет</a>
+                                </div>
+                            </c:if>
+                            <c:if test="${isBlckd}">
+                                <!--
+                                <div class="card-action grey lighten-1 black-text">
+                                    <a class="black-text">Сделать платёж</a>
+                                    <a class="black-text">История платежей</a>
+                                    <a class="black-text">Заблокировать счет</a>
+                                </div>
+                                -->
+                            </c:if>
                         </div>
                     </div>
                 </div>
             </c:forEach>
         </c:if>
         <c:if test="${hasNoAccount eq true}">
-            <h4>У вас нет пока нет счета.</h4>
+            <h5 class="center-align">У вас пока нет ни одного аккаунта</h5>
+            <a class="waves-effect waves-light btn indigo darken-4" href="#">Создать счет</a>
         </c:if>
-
-    <br>
-    ${errorAccounts}
-
-
     </div>
     <jsp:include page="footer.jsp"/>
 </body>

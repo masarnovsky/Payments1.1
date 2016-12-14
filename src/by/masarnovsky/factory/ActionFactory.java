@@ -16,7 +16,14 @@ public class ActionFactory {
         }
 
         try{
-            CommandEnum currentEnum = CommandEnum.valueOf(action.toUpperCase());
+            String act = action;
+            String setAccountToDelete = null;
+            if (action.contains("blockAccount")){
+                setAccountToDelete = action.substring(12);
+                act = "blockAccount";
+                req.getSession().setAttribute("setAccountToDelete", setAccountToDelete);
+            }
+            CommandEnum currentEnum = CommandEnum.valueOf(act.toUpperCase());
             current = currentEnum.getCurrentCommand();
         }catch (IllegalArgumentException ex) {
             req.setAttribute("wrongAction", action + MessageManager.getProperty("message.wrongaction"));

@@ -20,6 +20,16 @@ public enum CommandEnum {
         {
             this.command = new GetAllAccountsCommand();
         }
+    },
+    GETALLBLOCKINGACCOUNTS{
+        {
+            this.command = new GetAllBlockingAccountsCommand();
+        }
+    },
+    BLOCKACCOUNT{
+        {
+            this.command = new BlockAccountCommand();
+        }
     };
 
     ActionCommand command;

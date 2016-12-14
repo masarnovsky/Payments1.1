@@ -15,6 +15,7 @@ public class LoginCommand implements ActionCommand {
     private static final String PASSWORD = "password";
     private static final String IS_ADMIN = "isAdmin";
     private static final String IS_SIGNED = "isSignedIn";
+    private static final String ACTIVE_CLIENT = "activeClient";
 
     @Override
     public String execute(HttpServletRequest req) {
@@ -32,6 +33,7 @@ public class LoginCommand implements ActionCommand {
             req.getSession().setAttribute(PASSWORD, client.getPassword());
             req.getSession().setAttribute(IS_ADMIN, client.isAdmin());
             req.getSession().setAttribute(IS_SIGNED, true);
+            req.getSession().setAttribute(ACTIVE_CLIENT, client);
             clientDAO.setClientAccountToSession(client, req);
             page = ConfigurationManager.getProperty("path.page.home");
             // page = controller?command=getAllAccounts
