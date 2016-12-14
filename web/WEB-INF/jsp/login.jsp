@@ -17,17 +17,17 @@
             </div>
             <div class="input-field col s4">
                 <input name="password" type="password" class="validate" length="15">
-                <label>Login</label>
+                <label>Password</label>
             </div>
+            <div class="text-accent-4">${errorLoginOrPassMessage}</div>
         </div>
-        ${errorLoginOrPassMessage}
+
         ${wrongAction}
         ${nullPage}
 
 
 
-        <button class="btn waves-effect waves-light" type="submit">Log in</button>
-        <input type="submit" value="Log in"/>
+        <button class="btn waves-effect waves-light" type="submit">Войти</button>
     </form>
     </div>
     <jsp:include page="/footer"/>

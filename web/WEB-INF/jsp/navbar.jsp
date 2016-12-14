@@ -11,11 +11,11 @@
       <a href="#" class="brand-logo">BANK</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <c:if test="${isSignedIn == true}">
-            <li><a href="#">Мои счета</a></li>
+                <li><a>Пользователь: ${login}</a></li>
+                <li><a href="#">Мои счета</a></li>
             <c:if test="${isAdmin}">
                 <li>Показать все заблокированные аккаунты</li>
             </c:if>
-
             <li><a href="controller?command=logout">Выйти</a></li>
             </c:if>
         </ul>

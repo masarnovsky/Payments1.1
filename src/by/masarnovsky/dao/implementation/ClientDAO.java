@@ -141,7 +141,7 @@ public class ClientDAO implements IClientDAO {
                 }
             }
             else {
-                req.getSession().setAttribute("errorAccounts", "У Вас нет счета. ");
+                req.getSession().setAttribute("errorAccounts", true);
             }
 
         } catch (SQLException e) {
