@@ -20,6 +20,7 @@ public class ClientDAO implements IClientDAO {
     private final String CHECK_CLIENT_BY_LOGIN = "select id, fio, password, isAdmin from clients where login=?";
     private final String GET_CLIENT_ACCOUNTS = "select * from account where owner=?";
     private final String GET_ACCOUNT_CARDS = "select * from creditcard where idAccount=?";
+    private final String GET_CLIENT_BY_ID = "select * from clients where id=?";
 
 
     @Override
@@ -149,6 +150,28 @@ public class ClientDAO implements IClientDAO {
         } finally {
             closeResources(rs, ps, connection);
         }
+    }
+
+    @Override
+    public Client getClientById(int id) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Client client = null;
+
+        try {
+            connection = DatabaseConnection.getConnection();
+            ps = connection.prepareStatement(GET_CLIENT_BY_ID);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                client = new Client(rs.getInt(1), rs.getString(2), rs.getString(3));
+            }
+            return client;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return client;
     }
 
     private void closeResources(ResultSet rs, Statement st, Connection cn){

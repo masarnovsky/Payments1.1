@@ -8,13 +8,13 @@
 <div>
 <nav>
   <div class="nav-wrapper">
-      <a href="#" class="brand-logo">BANK</a>
+      <a class="brand-logo white-text">BANK</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <c:if test="${isSignedIn == true}">
-                <li><a>Пользователь: ${login}</a></li>
+                <li><a class="white-text">Пользователь: ${login}</a></li>
                 <li><a href="#">Мои счета</a></li>
             <c:if test="${isAdmin}">
-                <li>Показать все заблокированные аккаунты</li>
+                <li><a href="controller?command=getAllBlockedAccounts">Показать все заблокированные аккаунты</a></li>
             </c:if>
             <li><a href="controller?command=logout">Выйти</a></li>
             </c:if>

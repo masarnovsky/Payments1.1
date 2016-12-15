@@ -9,7 +9,7 @@
     <jsp:include page="navbar.jsp"/>
     <div class="container">
         <div class="row">
-                <h5 class="center-align">Ваши счета:</h5>
+            <h5 class="center-align">Ваши счета:</h5>
             <h5 class="center-align">${blockingMessage}</h5>
         </div>
     <c:set var="hasNoAccount" value="${errorAccounts}"/>
@@ -26,7 +26,7 @@
                                     <div class="col s5">
                                         <p>Номер: ${account.getId()}</p>
                                         <p>Баланс: ${account.getCash()} BYN</p>
-                                        <p>Заблокирована: ${isBlckd}</p>
+                                        <p>Заблокирован: ${isBlckd}</p>
                                     </div>
                                     <div class="col s7">
                                         <p>Номер КК: ${creditCardAttribute[idAcc].getNumber()}</p>
@@ -43,13 +43,13 @@
                                 </div>
                             </c:if>
                             <c:if test="${isBlckd}">
-                                <!--
+
                                 <div class="card-action grey lighten-1 black-text">
                                     <a class="black-text">Сделать платёж</a>
                                     <a class="black-text">История платежей</a>
                                     <a class="black-text">Заблокировать счет</a>
                                 </div>
-                                -->
+
                             </c:if>
                         </div>
                     </div>

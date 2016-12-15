@@ -85,6 +85,15 @@ id="WebApp_ID" version="2.5">
         <url-pattern>/success</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>blockedAccounts</servlet-name>
+        <jsp-file>/WEB-INF/jsp/blockedaccounts.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>blockedAccounts</servlet-name>
+        <url-pattern>/getAllBlockedAccounts</url-pattern>
+    </servlet-mapping>
+
     <!--
     <filter>
         <filter-name>EncodingFilter</filter-name>

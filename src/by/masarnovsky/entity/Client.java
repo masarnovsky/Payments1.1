@@ -23,6 +23,12 @@ public class Client {
         this.isAdmin = isAdmin;
     }
 
+    public Client(int id, String fio, String login) {
+        this.id = id;
+        this.fio = fio;
+        this.login = login;
+    }
+
     public int getId() {
         return id;
     }
@@ -61,5 +67,16 @@ public class Client {
 
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", fio='" + fio + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }

@@ -21,14 +21,19 @@ public enum CommandEnum {
             this.command = new GetAllAccountsCommand();
         }
     },
-    GETALLBLOCKINGACCOUNTS{
+    GETALLBLOCKEDACCOUNTS{
         {
-            this.command = new GetAllBlockingAccountsCommand();
+            this.command = new GetAllBlockedAccountsCommand();
         }
     },
     BLOCKACCOUNT{
         {
             this.command = new BlockAccountCommand();
+        }
+    },
+    UNBLOCKACCOUNT{
+        {
+            this.command = new UnblockAccountCommand();
         }
     };
 

@@ -4,6 +4,7 @@ import by.masarnovsky.ConfigurationManager;
 import by.masarnovsky.MessageManager;
 import by.masarnovsky.command.ActionCommand;
 import by.masarnovsky.factory.ActionFactory;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,11 +16,16 @@ import java.io.IOException;
 
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
+    private final static Logger logger = Logger.getLogger(Controller.class);
+
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String page = null;
+
+        logger.info("in controller");
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(req);
         page = command.execute(req);
+        logger.info("after execute");
 
         if (page != null){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);

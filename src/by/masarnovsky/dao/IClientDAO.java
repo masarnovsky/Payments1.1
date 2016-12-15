@@ -10,4 +10,5 @@ public interface IClientDAO {
     List<Client> getAllClients();
     Client checkLogin(String enterLogin, String enterPass, HttpServletRequest req);
     void setClientAccountToSession(Client client, HttpServletRequest req);
+    Client getClientById(int id);
 }

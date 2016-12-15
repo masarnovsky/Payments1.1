@@ -63,6 +63,8 @@ public class Account {
     public void setIsBlocked(boolean isBlocked) {
         this.isBlocked = isBlocked;
     }
+
+
 }
 
 
