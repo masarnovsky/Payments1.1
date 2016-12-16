@@ -21,12 +21,8 @@
             </div>
             <div class="text-accent-4">${errorLoginOrPassMessage}</div>
         </div>
-
         ${wrongAction}
         ${nullPage}
-
-
-
         <button class="btn waves-effect waves-light" type="submit">Войти</button>
     </form>
     </div>

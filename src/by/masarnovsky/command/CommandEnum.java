@@ -35,6 +35,11 @@ public enum CommandEnum {
         {
             this.command = new UnblockAccountCommand();
         }
+    },
+    CREATEACCOUNT{
+        {
+            this.command = new CreateAccountCommand();
+        }
     };
 
     ActionCommand command;

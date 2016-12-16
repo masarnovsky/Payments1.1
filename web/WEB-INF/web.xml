@@ -32,12 +32,12 @@ id="WebApp_ID" version="2.5">
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>page</servlet-name>
-        <jsp-file>/WEB-INF/jsp/page.jsp</jsp-file>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/WEB-INF/index.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>page</servlet-name>
-        <url-pattern>/page</url-pattern>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
     
     <servlet>
@@ -83,6 +83,15 @@ id="WebApp_ID" version="2.5">
     <servlet-mapping>
         <servlet-name>success</servlet-name>
         <url-pattern>/success</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>home</servlet-name>
+        <jsp-file>/WEB-INF/jsp/home.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>home</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
     <servlet>

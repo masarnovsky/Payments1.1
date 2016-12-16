@@ -32,7 +32,8 @@
                 <div class="col s4"><p>${errorInPass}</p></div>
                 <div class="col s4"><p>${errorSIGNIN}</p></div>
             </div>
-            <input type="submit" value="Sign in" class="waves-effect waves-light btn indigo darken-4"/>
+            <button class="btn waves-effect waves-light" type="submit">Зарегистрироваться</button>
+            <a class="waves-effect waves-light btn blue lighten-2" href="/index.jsp">На главную</a>
 
         </form>
     </div>

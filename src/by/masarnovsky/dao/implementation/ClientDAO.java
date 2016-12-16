@@ -139,6 +139,7 @@ public class ClientDAO implements IClientDAO {
                     creditCards.put(account, new CreditCard(number, idAccountForCreditCard, valid, cvv));
                     req.getSession().setAttribute(ACCOUNTS_ATTRIBUTE, accounts);
                     req.getSession().setAttribute(CREDIT_CARD_ATTRIBUTE, creditCards);
+                    req.getSession().setAttribute("errorAccounts", false);
                 }
             }
             else {

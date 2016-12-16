@@ -8,12 +8,12 @@
 <body>
     <jsp:include page="navbar.jsp"/>
     <div class="container">
-        <div class="row">
-            <h5 class="center-align">Ваши счета:</h5>
-            <h5 class="center-align">${blockingMessage}</h5>
-        </div>
     <c:set var="hasNoAccount" value="${errorAccounts}"/>
         <c:if test="${hasNoAccount ne true}">
+            <div class="row">
+                <h5 class="center-align">Ваши счета: <a class="waves-effect waves-light btn indigo darken-4" href="controller?command=createAccount">Создать счет</a></h5>
+                <h5 class="center-align">${blockingMessage}</h5>
+            </div>
             <c:forEach var="account" items="${accountsAttribute}">
                 <c:set var="idAcc" value="${account.getId()}"/>
                 <c:set var="isBlckd" value="${account.isBlocked()}"/>
@@ -58,7 +58,7 @@
         </c:if>
         <c:if test="${hasNoAccount eq true}">
             <h5 class="center-align">У вас пока нет ни одного аккаунта</h5>
-            <a class="waves-effect waves-light btn indigo darken-4" href="#">Создать счет</a>
+            <a class="waves-effect waves-light btn indigo darken-4" href="controller?command=createAccount">Создать счет</a>
         </c:if>
     </div>
     <jsp:include page="footer.jsp"/>

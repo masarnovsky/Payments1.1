@@ -20,12 +20,9 @@ public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String page = null;
-
-        logger.info("in controller");
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(req);
         page = command.execute(req);
-        logger.info("after execute");
 
         if (page != null){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);

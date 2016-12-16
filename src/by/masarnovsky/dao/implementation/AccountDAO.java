@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class AccountDAO implements IAccountDAO {
     private final String BLOCKING_MESSAGE = "blockingMessage";
@@ -17,6 +18,7 @@ public class AccountDAO implements IAccountDAO {
     private static final String BLOCK_ACCOUNT = "UPDATE account SET isBlocked=\'1\' WHERE id=?";
     private final static String GET_BLOCKED_ACCOUNTS = "select * from account where isBlocked=1";
     private final static String UNBLOCK_ACCOUNT = "update account set isBlocked=\'0\' where id=?";
+    private final static String CREATE_ACCOUNT = "insert into account values (?, ?, 0.0, 0)";
 
     @Override
     public void blockAccount(HttpServletRequest req) {
@@ -84,6 +86,32 @@ public class AccountDAO implements IAccountDAO {
         }
         return accounts;
     }
+
+    @Override
+    public Account createAccount(int owner) {
+        Account account = null;
+        Random rand = new Random();
+        int id = rand.nextInt(5000)+2000;
+        Connection connection = null;
+        PreparedStatement ps = null;
+
+        try {
+            connection = DatabaseConnection.getConnection();
+            ps = connection.prepareStatement(CREATE_ACCOUNT);
+            ps.setInt(1, id);
+            ps.setInt(2, owner);
+            ps.executeUpdate();
+            account = new Account(id, owner, 0.0, false);
+            return account;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(ps, connection);
+        }
+        return account;
+    }
+
+
 
     private void closeResources(ResultSet rs, Statement st, Connection cn){
         try{

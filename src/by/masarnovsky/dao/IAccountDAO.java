@@ -9,4 +9,5 @@ public interface IAccountDAO {
     void blockAccount(HttpServletRequest req);
     void unblockAccount(HttpServletRequest req);
     List<Account> getBlockedAccounts();
+    Account createAccount(int owner);
 }
