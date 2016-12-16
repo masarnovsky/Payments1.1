@@ -24,6 +24,7 @@
         ${wrongAction}
         ${nullPage}
         <button class="btn waves-effect waves-light" type="submit">Войти</button>
+        <a class="waves-effect waves-light btn blue lighten-2" href="/index.jsp">На главную</a>
     </form>
     </div>
     <jsp:include page="/footer"/>

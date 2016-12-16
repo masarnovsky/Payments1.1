@@ -4,6 +4,7 @@
 <head>
     <title>${login} home</title>
     <link rel="stylesheet" type="text/css" href="../../css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="navbar.jsp"/>
@@ -11,45 +12,53 @@
     <c:set var="hasNoAccount" value="${errorAccounts}"/>
         <c:if test="${hasNoAccount ne true}">
             <div class="row">
-                <h5 class="center-align">Ваши счета: <a class="waves-effect waves-light btn indigo darken-4" href="controller?command=createAccount">Создать счет</a></h5>
-                <h5 class="center-align">${blockingMessage}</h5>
+                <h5 class="center-align">Ваши счета:</h5>
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn indigo darken-4" href="controller?command=createAccount">Создать счет</a>
+                </div>
+                <h5 class="center-align">${accountMessage}</h5>
             </div>
             <c:forEach var="account" items="${accountsAttribute}">
                 <c:set var="idAcc" value="${account.getId()}"/>
                 <c:set var="isBlckd" value="${account.isBlocked()}"/>
                 <div class="row">
                     <div class="col s8 offset-l2">
-                        <div class="card blue-grey white-text">
+                        <div class="card indigo lighten-4">
                             <div class="card-content">
                                 <span class="card-title">Сведения о счете</span>
                                 <div class="row">
                                     <div class="col s5">
-                                        <p>Номер: ${account.getId()}</p>
-                                        <p>Баланс: ${account.getCash()} BYN</p>
-                                        <p>Заблокирован: ${isBlckd}</p>
+                                        <span style="font-weight: 600">Номер: </span>${account.getId()} <br>
+                                        <span style="font-weight: 600">Баланс: </span>${account.getCash()} BYN <br>
+                                        <span style="font-weight: 600">Заблокирован: </span>${isBlckd}
                                     </div>
                                     <div class="col s7">
-                                        <p>Номер КК: ${creditCardAttribute[idAcc].getNumber()}</p>
-                                        <p>Валидность: ${creditCardAttribute[idAcc].getValid()}</p>
-                                        <p>CVV: ${creditCardAttribute[idAcc].getCvv()}</p>
+                                        <span style="font-weight: 600">Номер КК: </span>${creditCardAttribute[idAcc].getNumber()}<br>
+                                        <span style="font-weight: 600">Валидность: </span>${creditCardAttribute[idAcc].getValid()}<br>
+                                        <span style="font-weight: 600">CVV: </span>${creditCardAttribute[idAcc].getCvv()}
                                     </div>
                                 </div>
                             </div>
                             <c:if test="${isBlckd ne true}">
                                 <div class="card-action">
-                                    <a href="#">Сделать платёж</a>
-                                    <a href="#">История платежей</a>
-                                    <a href="controller?command=blockAccount${account.getId()}">Заблокировать счет</a>
+                                    <a href="#" class="grey-text text-darken-4">Оплатить</a>
+                                    <a href="#" class="grey-text text-darken-4">История оплат</a>
+                                    <a href="#" class="grey-text text-darken-4">Пополнить счет</a>
+                                    <a href="controller?command=blockAccount${account.getId()}" class="grey-text text-darken-4">Заблокировать</a>
                                 </div>
                             </c:if>
                             <c:if test="${isBlckd}">
-
-                                <div class="card-action grey lighten-1 black-text">
-                                    <a class="black-text">Сделать платёж</a>
-                                    <a class="black-text">История платежей</a>
-                                    <a class="black-text">Заблокировать счет</a>
+                                <div class="card-action center-align">
+                                    <a class="red-text text-accent-4">Заблокировано</a>
                                 </div>
-
+                            <!--
+                                <div class="card-action grey lighten-1">
+                                    <a class="grey-text text-darken-4">Оплатить</a>
+                                    <a class="grey-text text-darken-4">История оплат</a>
+                                    <a class="grey-text text-darken-4">Пополнить счет</a>
+                                    <a class="grey-text text-darken-4">Заблокировать</a>
+                                </div>
+                            -->
                             </c:if>
                         </div>
                     </div>

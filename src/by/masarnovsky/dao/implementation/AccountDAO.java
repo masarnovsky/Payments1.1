@@ -4,6 +4,7 @@ import by.masarnovsky.MessageManager;
 import by.masarnovsky.dao.DatabaseConnection;
 import by.masarnovsky.dao.IAccountDAO;
 import by.masarnovsky.entity.Account;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
@@ -12,7 +13,9 @@ import java.util.List;
 import java.util.Random;
 
 public class AccountDAO implements IAccountDAO {
-    private final String BLOCKING_MESSAGE = "blockingMessage";
+    private final static Logger logger = Logger.getLogger(AccountDAO.class);
+
+    private final String BLOCKING_MESSAGE = "accountMessage";
     private final String UNBLOCKING_MESSAGE = "unblockingMessage";
 
     private static final String BLOCK_ACCOUNT = "UPDATE account SET isBlocked=\'1\' WHERE id=?";

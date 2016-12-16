@@ -3,7 +3,7 @@
 <head>
 </head>
 <body>
-<footer class="page-footer">
+<footer class="page-footer indigo">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright">
+    <div class="footer-copyright indigo darken-2">
         <div class="container">
             © 2016 Max Masarnovsky
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>

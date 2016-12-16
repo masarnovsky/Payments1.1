@@ -12,6 +12,7 @@ public class CreditCardDAO implements ICreditCardDAO {
 
     @Override
     public boolean createCreditCard(int idAccount) {
+        String cvvVariations[] = {"080", "090", "160", "180", "399"};
         CreditCard card = null;
         Random rand = new Random();
         String number = String.valueOf(rand.nextInt(6000)+3000) + " " +
@@ -19,7 +20,7 @@ public class CreditCardDAO implements ICreditCardDAO {
                 String.valueOf(rand.nextInt(6000)+3000) + " " +
                 String.valueOf(rand.nextInt(6000)+3000);
         String valid = "12/20";
-        String cvv = "160";
+        String cvv = cvvVariations[rand.nextInt(5)];
         Connection connection = null;
         PreparedStatement ps = null;
 

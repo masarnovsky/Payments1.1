@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 public class GetAllBlockedAccountsCommand implements ActionCommand {
+    private final String UNBLOCKING_MESSAGE = "unblockingMessage";
+
     private static final String BLOCKED_ACCOUNTS = "blockedAccounts";
     private static final String CLIENTS_OF_BLOCKING_ACCOUNTS = "clientsOfBlockingAccounts";
     private static final String ZERO_BLOCKED_ACCOUNTS = "zeroBlockedAccounts";
@@ -23,7 +25,7 @@ public class GetAllBlockedAccountsCommand implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest req) {
-        logger.info("execute enter");
+        req.getSession().setAttribute(UNBLOCKING_MESSAGE, null);
         String page = ConfigurationManager.getProperty("path.page.blockedaccounts");
         IClientDAO clientDAO = new ClientDAO();
         IAccountDAO accountDAO = new AccountDAO();

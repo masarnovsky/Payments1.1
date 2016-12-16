@@ -40,6 +40,11 @@ public enum CommandEnum {
         {
             this.command = new CreateAccountCommand();
         }
+    },
+    UPDATEHOME{
+        {
+            this.command = new UpdateHomeCommand();
+        }
     };
 
     ActionCommand command;

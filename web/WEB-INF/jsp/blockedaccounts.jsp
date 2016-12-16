@@ -37,7 +37,7 @@
                             <td>${account.getCash()}</td>
                             <td>${cl.getFio()}</td>
                             <td>${cl.getLogin()}</td>
-                            <td><a class="waves-effect waves-light btn indigo darken-4" href="controller?command=unblockAccount${account.getId()}">Разблокировать счет</a></td>
+                            <td class="center-align"><a class="waves-effect waves-light btn indigo darken-4" href="controller?command=unblockAccount${account.getId()}">Разблокировать счет</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
