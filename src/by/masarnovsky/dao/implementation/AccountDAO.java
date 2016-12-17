@@ -22,6 +22,8 @@ public class AccountDAO implements IAccountDAO {
     private final static String GET_BLOCKED_ACCOUNTS = "select * from account where isBlocked=1";
     private final static String UNBLOCK_ACCOUNT = "update account set isBlocked=\'0\' where id=?";
     private final static String CREATE_ACCOUNT = "insert into account values (?, ?, 0.0, 0)";
+    private final static String GET_ACCOUNT_CASH = "select cash from account where id=?";
+    private final static String UPDATE_ACCOUNT_CASH = "update account set cash=? where id=?";
 
     @Override
     public void blockAccount(HttpServletRequest req) {
@@ -114,6 +116,38 @@ public class AccountDAO implements IAccountDAO {
         return account;
     }
 
+    @Override
+    public boolean updateCash(int id, double sum) {
+        boolean isSuccess = false;
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        double currentCash;
+
+        try{
+            connection = DatabaseConnection.getConnection();
+            ps = connection.prepareStatement(GET_ACCOUNT_CASH);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            rs.next();
+            currentCash = rs.getDouble(1);
+            currentCash += sum;
+
+            ps = connection.prepareStatement(UPDATE_ACCOUNT_CASH);
+            ps.setDouble(1, currentCash);
+            ps.setInt(2, id);
+            int updates = ps.executeUpdate();
+            if (updates > 0){
+                isSuccess = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(rs, ps, connection);
+        }
+
+        return isSuccess;
+    }
 
 
     private void closeResources(ResultSet rs, Statement st, Connection cn){

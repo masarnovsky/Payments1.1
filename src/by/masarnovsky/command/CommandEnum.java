@@ -45,6 +45,21 @@ public enum CommandEnum {
         {
             this.command = new UpdateHomeCommand();
         }
+    },
+    UPDATECASH{
+        {
+            this.command = new UpdateCashCommand();
+        }
+    },
+    GETPAYMENTHISTORY {
+        {
+            this.command = new GetPaymentHistory();
+        }
+    },
+    CREATEPAYMENT{
+        {
+            this.command = new CreatePaymentCommand();
+        }
     };
 
     ActionCommand command;

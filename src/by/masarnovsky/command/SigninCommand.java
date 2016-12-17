@@ -21,7 +21,7 @@ public class SigninCommand implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest req) {
-        String page = ConfigurationManager.getProperty("path.page.signin");;
+        String page = ConfigurationManager.getProperty("path.page.signin");
         String fio = req.getParameter(FIO);
         String login = req.getParameter(LOGIN);
         String password = req.getParameter(PASSWORD);

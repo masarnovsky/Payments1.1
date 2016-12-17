@@ -22,6 +22,7 @@ public class ActionFactory {
             String act = action;
             String setAccountToDelete = null;
             String setAccountToUnblock = null;
+            String setAccountToPayment = null;
             if (action.contains("unblockAccount")) {
                 setAccountToUnblock = action.substring(14);
                 act = "unblockAccount";
@@ -31,6 +32,10 @@ public class ActionFactory {
                 setAccountToDelete = action.substring(12);
                 act = "blockAccount";
                 req.getSession().setAttribute("setAccountToDelete", setAccountToDelete);
+            } else if (action.contains("getPaymentHistory")){
+                setAccountToPayment = action.substring(17);
+                 act = "getPaymentHistory";
+                 req.getSession().setAttribute("getPaymentHistory", setAccountToPayment);
             }
             CommandEnum currentEnum = CommandEnum.valueOf(act.toUpperCase());
             current = currentEnum.getCurrentCommand();

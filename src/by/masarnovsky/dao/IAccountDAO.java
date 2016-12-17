@@ -10,4 +10,5 @@ public interface IAccountDAO {
     void unblockAccount(HttpServletRequest req);
     List<Account> getBlockedAccounts();
     Account createAccount(int owner);
+    boolean updateCash(int id, double sum);
 }
