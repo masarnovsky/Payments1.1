@@ -8,7 +8,7 @@
 <div>
 <nav>
   <div class="nav-wrapper indigo darken-2">
-      <a class="brand-logo white-text">BANK</a>
+      <a class="brand-logo white-text" style="padding-left: 15px;">BANK</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <c:if test="${isSignedIn == true}">
                 <li class="white-text" style="padding: 0px 15px 0px 15px">Пользователь: ${login}</li>

@@ -29,7 +29,7 @@
                                 <div class="row">
                                     <div class="col s5">
                                         <span style="font-weight: 600">Номер: </span>${account.getId()} <br>
-                                        <span style="font-weight: 600">Баланс: </span>${account.getCash()} BYN <br>
+                                        <span style="font-weight: 600">Баланс: </span>${account.getCash()} BYR <br>
                                         <span style="font-weight: 600">Заблокирован: </span>${isBlckd}
                                     </div>
                                     <div class="col s7">
@@ -41,24 +41,41 @@
                             </div>
                             <c:if test="${isBlckd ne true}">
                                 <div class="card-action">
-                                    <a href="#" class="grey-text text-darken-4">Оплатить</a>
-                                    <a href="#" class="grey-text text-darken-4">История оплат</a>
-                                    <a href="#" class="grey-text text-darken-4">Пополнить счет</a>
+                                    <a href="#modal1" onclick="setModal(${account.getId()}, ${account.getCash()})" class="grey-text text-darken-4">Оплатить</a>
+                                    <a href="controller?command=paymentHistory${account.getId()}" class="grey-text text-darken-4">История оплат</a>
+                                    <a href="controller?command=updateCash${account.getId()}" class="grey-text text-darken-4">Пополнить счет</a>
                                     <a href="controller?command=blockAccount${account.getId()}" class="grey-text text-darken-4">Заблокировать</a>
                                 </div>
+
+                                <!-- Modal Structure -->
+                                <div id="modal1" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Пополнение счета</h4>
+                                        <form name="UpdateCash" action="controller" method="POST">
+                                            <input name="command" type="hidden" value="updatecash"/>
+                                            <input id="idAccountModal" name="idAccount" type="hidden">
+                                            <input id="accountCashModal" name="accountCash" type="hidden">
+                                            <div class="row">
+                                                <span style="font-weight: 600; padding-left: 11px;">Номер счета: </span> <span id="id"></span> <br>
+                                                <span style="font-weight: 600; padding-left: 11px;">Текущий баланс: </span> <span id="cash"></span> BYR <br>
+                                                <span style="font-weight: 600; padding-left: 11px;">Введите сумму для пополнения: </span> <br>
+                                                <div class="input-field col s5">
+                                                    <input name="sum" type="text">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Оплатить</a>
+                                        <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Закрыть</a>
+                                    </div>
+                                </div>
+                                <!-- modal -->
                             </c:if>
                             <c:if test="${isBlckd}">
                                 <div class="card-action center-align">
                                     <a class="red-text text-accent-4">Заблокировано</a>
                                 </div>
-                            <!--
-                                <div class="card-action grey lighten-1">
-                                    <a class="grey-text text-darken-4">Оплатить</a>
-                                    <a class="grey-text text-darken-4">История оплат</a>
-                                    <a class="grey-text text-darken-4">Пополнить счет</a>
-                                    <a class="grey-text text-darken-4">Заблокировать</a>
-                                </div>
-                            -->
                             </c:if>
                         </div>
                     </div>
@@ -71,6 +88,43 @@
         </c:if>
     </div>
     <jsp:include page="footer.jsp"/>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript">
+        
+        function setModal(id, cash) {
+            $('.modal').find('#id').text(id);
+            $('.modal').find('#cash').text(cash);
+            var idAccountModal = document.getElementById('idAccountModal');
+            idAccountModal.setAttribute("value", id);
+            var accountCashModal = document.getElementById('accountCashModal');
+            accountCashModal.setAttribute("value", cash);
+            console.log(idAccountModal);
+            console.log(accountCashModal);
+            $('.modal').modal();
+        }
+/*
+        $(document).ready(function(event){
+            var button = $(event.relatedTarget);
+            var content = button.data('content');
+            var target = button.data('target');
+            $('.modal').find('#id').text(content);
+            $('.modal').find('#text').text("fortext"); // work
+
+            $('.modal').modal();
+        });
+*/
+/*
+        $('#modal').on('click', function (e) {
+            var button = $(e.relatedTarget);
+            var content = button.data('content');
+            var target = button.data('target');
+            $('.modal').find('#id').text(content);
+            $('.modal').find('#text').text("fortext");
+        });
+        */
+    </script>
 </body>
 </html>
 
