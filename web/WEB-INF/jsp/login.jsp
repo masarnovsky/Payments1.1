@@ -7,7 +7,7 @@
 </head>
 <body>
 <c:import url="/navbar"/>
-    <div class="row">
+    <div class="row" style="min-height: 400px">
     <form name="LoginForm" method="POST" action="controller" class="col s8">
         <input name="command" type="hidden" value="login">
         <div class="row">

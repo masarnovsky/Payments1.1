@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Hello page</title>
+    <link rel="stylesheet" type="text/css" href="../../css/materialize.css">
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper indigo darken-2">
+        <a class="brand-logo white-text" style="padding-left: 15px;">BANK</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <c:if test="${isSignedIn == true}">
+                <li class="white-text" style="padding: 0px 15px 0px 15px">Пользователь: ${login}</li>
+                <li><a href="controller?command=updateHome">Мои счета</a></li>
+                <c:if test="${isAdmin}">
+                    <li><a href="controller?command=getAllBlockedAccounts">Показать все заблокированные аккаунты</a></li>
+                </c:if>
+                <li><a href="controller?command=logout">Выйти</a></li>
+            </c:if>
+        </ul>
+    </div>
+</nav>
+
+
+
+<!--
+    <div class="row" style="min-height: 400px;">
+        <div class="col s6 offset-l3">
+            <div class="row">
+                <a class="waves-effect waves-light btn blue lighten-2" href="/login">Войти</a>
+                <a class="waves-effect waves-light btn indigo darken-4" href="/signin">Регистрация</a>
+            </div>
+        </div>
+    </div>
+    -->
+<!--<div class="container">-->
+    <!--<div class="row center-align" style="min-height: 150px; margin: 20% auto">-->
+        <!--<h5>Спасибо за регистрацию! Пожалуйста, войдите в систему.</h5> <a href="/login">Войти</a>-->
+    <!--</div>-->
+<!--</div>-->
+<footer class="page-footer indigo">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright indigo darken-2">
+        <div class="container">
+            © 2016 Max Masarnovsky
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/materialize.js"></script>
+</body>
+</html>

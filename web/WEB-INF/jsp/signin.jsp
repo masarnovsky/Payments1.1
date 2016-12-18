@@ -6,6 +6,7 @@
 </head>
 <body>
     <jsp:include page="/navbar"/>
+    <div id="fullWindow">
     <div class="row">
         <form name="SigninForm" action="controller" method="POST" class="col s8">
             <input name="command" type="hidden" value="signin">
@@ -37,7 +38,7 @@
 
         </form>
     </div>
-
+    </div>
     <jsp:include page="/footer"/>
 
     <script type="text/javascript" src="js/jquery.js"></script>

@@ -1,32 +1,23 @@
 package by.masarnovsky.entity;
 
 import java.sql.Date;
+import java.sql.Time;
 
 public class Payment {
     private int id;
     private int idCreditCard;
     private double summ;
     private Date date;
+    private Time time;
 
     Payment(){}
 
-    public Payment(int idCreditCard, double summ, Date date) {
-        this.idCreditCard = idCreditCard;
-        this.summ = summ;
-        this.date = date;
-    }
-
-    public Payment(int id, int idCreditCard, double summ, Date date) {
+    public Payment(int id, int idCreditCard, double summ, Date date, Time time) {
         this.id = id;
         this.idCreditCard = idCreditCard;
         this.summ = summ;
         this.date = date;
-    }
-
-    public Payment(int id, int idCreditCard, double summ) {
-        this.id = id;
-        this.idCreditCard = idCreditCard;
-        this.summ = summ;
+        this.time = time;
     }
 
     public int getId() {
@@ -59,5 +50,13 @@ public class Payment {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 }

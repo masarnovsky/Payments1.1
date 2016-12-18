@@ -36,15 +36,6 @@ public class LoginCommand implements ActionCommand {
             req.getSession().setAttribute(ACTIVE_CLIENT, client);
             clientDAO.setClientAccountToSession(client, req);
             page = ConfigurationManager.getProperty("path.page.home");
-            // page = controller?command=getAllAccounts
-
-
-//            if ((boolean)req.getSession().getAttribute("isAdmin")){
-//                page = ConfigurationManager.getProperty("path.page.admin");
-//
-//            }
-//            else
-//                page = ConfigurationManager.getProperty("path.page.user");
         } else {
             req.setAttribute("errorLoginOrPassMessage", MessageManager.getProperty("message.loginerror"));
             page = ConfigurationManager.getProperty("path.page.login");

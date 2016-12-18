@@ -7,19 +7,17 @@
   </head>
   <body>
     <c:import url="/navbar"/>
-  <div class="row">
-      <div class="col s6 offset-l3">
-          <div class="row">
-              <a class="waves-effect waves-light btn blue lighten-2" href="/login">Войти</a>
-              <a class="waves-effect waves-light btn indigo darken-4" href="/signin">Регистрация</a>
-          </div>
-      </div>
-  </div>
 
-
-
-
-
+<div id="fullWindow">
+    <div class="row">
+        <div class="col s6 offset-l3">
+            <div class="row">
+                <a class="waves-effect waves-light btn blue lighten-2" href="/login">Войти</a>
+                <a class="waves-effect waves-light btn indigo darken-4" href="/signin">Регистрация</a>
+            </div>
+        </div>
+    </div>
+</div>
 <c:import url="/footer"/>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>

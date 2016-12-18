@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,24 +8,26 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">Курсовой проект</h5>
+                <p class="grey-text text-lighten-4">Тема: Платежи</p>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
+                <c:if test="${isSignedIn == true}">
+                <h5 class="white-text">Ссылки</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        <li><a class="grey-text text-lighten-3" href="controller?command=updateHome">Мои счета</a></li>
+                        <c:if test="${isAdmin}">
+                            <li><a class="grey-text text-lighten-3" href="controller?command=getAllBlockedAccounts">Заблокированные аккаунты</a></li>
+                        </c:if>
+                        <li><a class="grey-text text-lighten-3" href="controller?command=logout">Выйти</a></li>
                 </ul>
+                </c:if>
             </div>
         </div>
     </div>
     <div class="footer-copyright indigo darken-2">
-        <div class="container">
-            © 2016 Max Masarnovsky
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <div class="container center-align">
+            © 2016 Max Masarnovsky | m.masarnovsky@gmail.com
         </div>
     </div>
 </footer>

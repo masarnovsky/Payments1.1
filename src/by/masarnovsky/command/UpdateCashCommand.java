@@ -24,7 +24,7 @@ public class UpdateCashCommand implements ActionCommand{
         try {
             cashForUpdate = Double.valueOf(req.getParameter("cashForUpdate"));
             if (cashForUpdate < 0){
-                req.getSession().setAttribute(ACCOUNT_MESSAGE, MessageManager.getProperty("message.wrongcashdata"));
+                throw new NumberFormatException();
             }
             else{
                 IAccountDAO accountDAO = new AccountDAO();
@@ -34,7 +34,7 @@ public class UpdateCashCommand implements ActionCommand{
                 IClientDAO clientDAO = new ClientDAO();
                 clientDAO.setClientAccountToSession((Client) req.getSession().getAttribute("activeClient"), req);
             }
-        }catch (IllegalFormatException ex){
+        }catch (NumberFormatException ex){
             req.getSession().setAttribute(ACCOUNT_MESSAGE, MessageManager.getProperty("message.wrongcashdata"));
             return page;
         }
